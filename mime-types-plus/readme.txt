@@ -4,7 +4,7 @@ Donate link: https://riverforest-wp.info/donate/
 Tags: filename extention, file type, media library, mime types
 Requires at least: 4.7
 Requires PHP: 8.0
-Tested up to: 6.6
+Tested up to: 6.7
 Stable tag: 2.04
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
