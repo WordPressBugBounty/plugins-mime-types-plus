@@ -3,7 +3,7 @@
  * Plugin Name: Mime Types Plus
  * Plugin URI:  https://wordpress.org/plugins/mime-types-plus/
  * Description: Add the mime type that can be used in the media library to each file type.
- * Version:     2.04
+ * Version:     2.05
  * Author:      Katsushi Kawamori
  * Author URI:  https://riverforest-wp.info/
  * License:     GPLv2 or later

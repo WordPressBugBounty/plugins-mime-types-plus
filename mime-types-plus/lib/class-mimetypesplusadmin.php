@@ -20,6 +20,10 @@
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $mimetypesplusadmin = new MimeTypesPlusAdmin();
 
 /** ==================================================
@@ -99,7 +103,7 @@ class MimeTypesPlusAdmin {
 	public function edit_mimetype() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.' ) );
+			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'mime-types-plus' ) );
 		}
 
 		$this->options_updated();
@@ -127,9 +131,9 @@ class MimeTypesPlusAdmin {
 				</div>
 
 				<div style="padding-top: 5px; padding-bottom: 5px;">
-				<?php esc_html_e( 'File type:' ); ?>
+				<?php esc_html_e( 'File type:', 'mime-types-plus' ); ?>
 				<select name="type">
-				<option value=""><?php esc_html_e( 'Select' ); ?></option>
+				<option value=""><?php esc_html_e( 'Select', 'mime-types-plus' ); ?></option>
 				<option value="image">image</option>
 				<option value="audio">audio</option>
 				<option value="video">video</option>
@@ -142,7 +146,7 @@ class MimeTypesPlusAdmin {
 				</select>
 				</div>
 
-				<?php submit_button( __( 'Add' ), 'primary', 'MimeAdd', true ); ?>
+				<?php submit_button( __( 'Add', 'mime-types-plus' ), 'primary', 'MimeAdd', true ); ?>
 
 			</form>
 
@@ -154,9 +158,9 @@ class MimeTypesPlusAdmin {
 				<?php submit_button( __( 'Update Mime Type', 'mime-types-plus' ), 'primary', 'UpdateMime', true ); ?>
 				<table border=1 cellspacing="0" cellpadding="5" bordercolor="#000000" style="table-layout: fixed; border-collapse: collapse;">
 				<thead>
-				<th><?php esc_html_e( 'Delete' ); ?></th>
+				<th><?php esc_html_e( 'Delete', 'mime-types-plus' ); ?></th>
 				<th style="text-align: left; width: 80px;"><?php echo esc_html( __( 'Extension', 'mime-types-plus' ) . ' : ' . __( 'Mime Types', 'mime-types-plus' ) ); ?></th>
-				<th style="width: 40px;"><?php esc_html_e( 'File type:' ); ?></th>
+				<th style="width: 40px;"><?php esc_html_e( 'File type:', 'mime-types-plus' ); ?></th>
 				</thead>
 				<?php
 				foreach ( $extentions as $type => $extmimes ) {
@@ -167,7 +171,7 @@ class MimeTypesPlusAdmin {
 						<td style="word-wrap: break-word;"><?php echo esc_html( $ext . ' : ' . $mimetype ); ?></td>
 						<td>
 						<select name="types[<?php echo esc_attr( $ext ); ?>]">
-						<option value=""><?php esc_html_e( 'Select' ); ?></option>
+						<option value=""><?php esc_html_e( 'Select', 'mime-types-plus' ); ?></option>
 						<option value="image" 
 						<?php
 						if ( 'image' == $type ) {
@@ -245,7 +249,7 @@ class MimeTypesPlusAdmin {
 	public function edit_users() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.' ) );
+			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'mime-types-plus' ) );
 		}
 
 		$this->options_updated();
@@ -291,7 +295,7 @@ class MimeTypesPlusAdmin {
 				}
 				?>
 				</select>
-				<?php submit_button( __( 'Select' ), 'large', 'UserSelect', false ); ?>
+				<?php submit_button( __( 'Select', 'mime-types-plus' ), 'large', 'UserSelect', false ); ?>
 				<table border=1 cellspacing="0" cellpadding="5" bordercolor="#000000" style="border-collapse: collapse;">
 				<thead>
 				<tr>
@@ -363,8 +367,8 @@ class MimeTypesPlusAdmin {
 				?>
 				</table>
 				</div>
-				<?php submit_button( __( 'Settings' ), 'primary', 'UserExts', false ); ?>&nbsp;&nbsp;
-				<?php submit_button( __( 'Default' ), 'primary', 'UserDefault', false ); ?>
+				<?php submit_button( __( 'Settings', 'mime-types-plus' ), 'primary', 'UserExts', false ); ?>&nbsp;&nbsp;
+				<?php submit_button( __( 'Default', 'mime-types-plus' ), 'primary', 'UserDefault', false ); ?>
 			</form>
 
 		</div>
@@ -379,7 +383,7 @@ class MimeTypesPlusAdmin {
 	public function manage_page() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.' ) );
+			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'mime-types-plus' ) );
 		}
 
 		?>
@@ -436,7 +440,7 @@ class MimeTypesPlusAdmin {
 				}
 			}
 		}
-		$plugin_version = __( 'Version:' ) . ' ' . $plugin_ver_num;
+		$plugin_version = __( 'Version:', 'mime-types-plus' ) . ' ' . $plugin_ver_num;
 		/* translators: FAQ Link & Slug */
 		$faq       = sprintf( __( 'https://wordpress.org/plugins/%s/faq', 'mime-types-plus' ), $slug );
 		$support   = 'https://wordpress.org/support/plugin/' . $slug;
@@ -457,7 +461,7 @@ class MimeTypesPlusAdmin {
 		<a style="text-decoration: none;" href="<?php echo esc_url( $translate ); ?>" target="_blank" rel="noopener noreferrer">
 		<?php
 		/* translators: Plugin translation link */
-		echo esc_html( sprintf( __( 'Translations for %s' ), $plugin_name ) );
+		echo esc_html( sprintf( __( 'Translations for %s', 'mime-types-plus' ), $plugin_name ) );
 		?>
 		</a> | <a style="text-decoration: none;" href="<?php echo esc_url( $facebook ); ?>" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-facebook"></span></a> | <a style="text-decoration: none;" href="<?php echo esc_url( $twitter ); ?>" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-twitter"></span></a> | <a style="text-decoration: none;" href="<?php echo esc_url( $youtube ); ?>" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-video-alt3"></span></a>
 		</div>
@@ -466,7 +470,7 @@ class MimeTypesPlusAdmin {
 		<div style="width: 250px; height: 180px; margin: 5px; padding: 5px; border: #CCC 2px solid;">
 		<h3><?php esc_html_e( 'Please make a donation if you like my work or would like to further the development of this plugin.', 'mime-types-plus' ); ?></h3>
 		<div style="text-align: right; margin: 5px; padding: 5px;"><span style="padding: 3px; color: #ffffff; background-color: #008000">Plugin Author</span> <span style="font-weight: bold;">Katsushi Kawamori</span></div>
-		<button type="button" style="margin: 5px; padding: 5px;" onclick="window.open('<?php echo esc_url( $donate ); ?>')"><?php esc_html_e( 'Donate to this plugin &#187;' ); ?></button>
+		<button type="button" style="margin: 5px; padding: 5px;" onclick="window.open('<?php echo esc_url( $donate ); ?>')"><?php esc_html_e( 'Donate to this plugin &#187;', 'mime-types-plus' ); ?></button>
 		</div>
 
 		<?php
@@ -595,7 +599,7 @@ class MimeTypesPlusAdmin {
 									}
 								}
 							}
-							echo '<div class="notice notice-success is-dismissible"><ul><li>' . esc_html( __( 'Mime Type', 'mime-types-plus' ) . ' --> ' . __( 'Delete' ) ) . '</li></ul></div>';
+							echo '<div class="notice notice-success is-dismissible"><ul><li>' . esc_html( __( 'Mime Type', 'mime-types-plus' ) . ' --> ' . __( 'Delete', 'mime-types-plus' ) ) . '</li></ul></div>';
 						}
 					}
 
@@ -625,7 +629,7 @@ class MimeTypesPlusAdmin {
 						}
 						if ( 0 < $update_count ) {
 							update_option( 'mimetypesplus', $extentions );
-							echo '<div class="notice notice-success is-dismissible"><ul><li>' . esc_html( __( 'File type:' ) . ' --> ' . __( 'Update' ) ) . '</li></ul></div>';
+							echo '<div class="notice notice-success is-dismissible"><ul><li>' . esc_html( __( 'File type:', 'mime-types-plus' ) . ' --> ' . __( 'Update', 'mime-types-plus' ) ) . '</li></ul></div>';
 						}
 					}
 				}

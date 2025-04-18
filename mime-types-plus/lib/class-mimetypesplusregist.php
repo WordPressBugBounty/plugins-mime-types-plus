@@ -20,6 +20,10 @@
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $mimetypesplusregist = new MimeTypesPlusRegist();
 
 /** ==================================================
@@ -86,7 +90,7 @@ class MimeTypesPlusRegist {
 
 		if ( get_option( 'mimetypesplus_settings' ) ) {
 
-			$add = '<a style="text-decoration: none;" href="' . admin_url( 'admin.php?page=mimetypesplus-edit' ) . '">' . __( 'Add' ) . '</a>';
+			$add = '<a style="text-decoration: none;" href="' . admin_url( 'admin.php?page=mimetypesplus-edit' ) . '">' . __( 'Add', 'mime-types-plus' ) . '</a>';
 			?>
 			<div class="notice notice-warning is-dismissible"><ul><li>
 			<?php

@@ -4,8 +4,8 @@ Donate link: https://riverforest-wp.info/donate/
 Tags: filename extention, file type, media library, mime types
 Requires at least: 4.7
 Requires PHP: 8.0
-Tested up to: 6.7
-Stable tag: 2.04
+Tested up to: 6.8
+Stable tag: 2.05
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ none
 3. Specify extensions
 
 == Changelog ==
+
+= [2.05] 2025/04/18 =
+* Fix - Loading the management screen.
 
 = 2.04 =
 Supported WordPress 6.4.
